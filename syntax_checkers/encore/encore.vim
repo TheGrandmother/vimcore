@@ -1,7 +1,7 @@
 " ============================================================================
 " File:        syntax_checkers/encore/encore.vim
 " Description: default encore syntax checker for syntastic.
-" Maintainer:  Michael Lowell Roberts <mirobert at microsoft dot com>
+" Maintainer:  Henrik Sommerland <henrik.sommerland@gmail.com>
 " Version:     0.0.0
 " License:     Microsoft Public License (Ms-PL)
 " ============================================================================
