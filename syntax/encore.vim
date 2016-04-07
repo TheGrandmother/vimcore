@@ -1,11 +1,13 @@
 " Vim syntax file
-" Language: Dafny
-" Maintainer: Michael Lowell Roberts <mirobert at microsoft dot com>
+" Language: Encore
+" Maintainer: Henrik Sommerland <henrik.sommerland@gmail.com>
 "
-" Based on original Dafny syntax script by Kuat Yessenov.
+" Based on a modified Dafny syntax script by Michael Lowell Roberts.
+"
+" In turn based on original Dafny syntax script by Kuat Yessenov.
 " Copyright (C) Microsoft Corporation.  All Rights Reserved.
 " Licensed under the Microsoft Public License (Ms-PL).
-" See https://encore.codeplex.com/license for more details.
+" See https://dafny.codeplex.com/license for more details.
 
 if version < 600
   syntax clear
