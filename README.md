@@ -1,6 +1,8 @@
 # vimcore
 This is a very basic vim plugin for the encore programming language.
 
+![Example](/example.png)
+
 ## Features
 This plugin provides syntax highlighting, some error checking and some fancypantsy unicode magic.
 
