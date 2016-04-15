@@ -103,7 +103,7 @@ iabbrev <buffer> or  ∨
 
 
 " turn syntax highlight on for new symbols
-syn match hsvarsym "(\|λ\|←\|→\|≲\|≳\|≡\|≠\| )"
+syn match hsvarsym "(\|λ\|←\|→\|≤\|≥\|≡\|≠\| )"
 
 if exists("s:loaded_ballercore")
 	finish
@@ -124,8 +124,8 @@ function s:writeToNormal()
 	silent %s/λ/\\/eg
 	silent %s/←/<-/eg
 	silent %s/→/->/eg
-	silent %s/≲/<=/eg
-	silent %s/≳/>=/eg
+	silent %s/≤/<=/eg
+	silent %s/≥/>=/eg
 "	silent %s/≡/==/eg
 	silent %s/≠/!=/eg
 	silent %s/⇒/=>/eg
@@ -149,8 +149,9 @@ function s:readFromNormal()
 		silent %s/\\\s*(/λ(/eg
 	silent %s/<-/←/eg
 	silent %s/->/→/eg
-	silent %s/<=/≲/eg
-	silent %s/>=/≳/eg
+	silent %s/<=/≤/eg
+	silent %s/>=/≥/eg
+
 "	silent %s/≡/==/eg
 	silent %s/!=/≠/eg
 	silent %s/=>/⇒/eg
@@ -158,7 +159,6 @@ function s:readFromNormal()
 	silent %s/\<not\>/¬/eg
 	silent %s/\<and\>/∧/eg
 	silent %s/\<or\>/∨/eg
-
 	
 	"&amp;"
    " silent %s/[^λ\\\-!#$%&*+/<=>?@\^|~.]\@<=\\\([^λ\\\-!#$%&*+/<=>\?@\^|~.]\)/λ\1/eg
