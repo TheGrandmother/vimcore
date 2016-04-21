@@ -34,3 +34,10 @@ They make the templates awesome :D
 ##Installation
 Just clone this repo into your `.vim/bundles/` directory and it should be working.
 You need [syntastic](https://github.com/scrooloose/syntastic) for the error checking to work.
+
+### Vundle
+If you use Vundle, just place a
+```
+Plugin 'TheGrandmother/vimcore'
+```
+in your `.vimrc` and run `:PluginInstall`.
