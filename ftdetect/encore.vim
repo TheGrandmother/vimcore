@@ -13,7 +13,7 @@ au BufLeave  *.enc call Encore_unmap()
 let s:encore_is_mapped=0
 
 function! Encore_map()
-  if !(s:encore_is_mapped == 0)
+  if (s:encore_is_mapped == 0)
     nmap <leader>ec ^i--<ESC>
     nmap <leader>eC ^2"_dl
     vmap <leader>ec <ESC>`<0<C-v>`>0I--<ESC>
@@ -41,7 +41,7 @@ function! Encore_unmap()
     unmap <leader>ed
     unmap <leader>er
     unmap <leader>ef
-    unmap <c-_>
+    iunmap <c-_>
     unmap <leader>ei
     unmap <leader>eie
     unmap <leader>em
