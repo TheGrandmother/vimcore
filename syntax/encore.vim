@@ -29,7 +29,7 @@ syntax case match
 syntax keyword encoreClassType active passive trait
 syntax keyword encoreFunction def
 syntax keyword encoreMethod method lemma constructor colemma 
-syntax keyword encoreTypeDef class
+syntax keyword encoreTypeDef class typedef
 syntax keyword encoreModifier passive
 syntax keyword encoreModule bundle where import qualified 
 syntax keyword encoreConditional if then else match case unless
