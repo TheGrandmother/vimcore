@@ -28,8 +28,8 @@ syntax case match
 
 syntax keyword encoreClassType active passive trait
 syntax keyword encoreFunction def
-syntax keyword encoreMethod method lemma constructor colemma 
-syntax keyword encoreTypeDef class typedef
+syntax keyword encoreTrait linear thread read subord unsafe
+syntax keyword encoreTypeDef class typedef trait
 syntax keyword encoreModifier passive
 syntax keyword encoreModule bundle where import qualified 
 syntax keyword encoreConditional if then else match case unless
@@ -91,7 +91,6 @@ inoremap <buffer> <= ≤
 inoremap <buffer> >= ≥
 inoremap <buffer> != ≠
 inoremap <buffer> => ⇒
-inoremap <buffer> >> »
 
 iabbrev <buffer> not ¬
 iabbrev <buffer> and ∧
@@ -129,7 +128,6 @@ function s:writeToNormal()
 "	silent %s/≡/==/eg
 	silent %s/≠/!=/eg
 	silent %s/⇒/=>/eg
-	silent %s/»/>>/eg
 	silent %s/¬/not/eg
 	silent %s/∧/and/eg
 	silent %s/∨/or/eg
