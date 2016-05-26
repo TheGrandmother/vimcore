@@ -61,7 +61,7 @@ syntax match encoreOperator "(\|λ\|¬\|∧\|∨\| )"
 
 highlight link encoreFunction Function
 highlight link encoreClassName Identifier
-highlight link encoreMethod Statement
+highlight link encoreTrait Statement
 highlight link encoreModule StorageClass
 highlight link encoreTypeDef Typedef
 highlight link encoreConditional Conditional
@@ -153,7 +153,6 @@ function s:readFromNormal()
 "	silent %s/≡/==/eg
 	silent %s/!=/≠/eg
 	silent %s/=>/⇒/eg
-	silent %s/>>/»/eg
 	silent %s/\<not\>/¬/eg
 	silent %s/\<and\>/∧/eg
 	silent %s/\<or\>/∨/eg
