@@ -30,16 +30,16 @@ syntax keyword encoreFunction def
 syntax keyword encoreTrait linear thread read subord unsafe
 syntax keyword encoreTypeDef class typedef trait
 syntax keyword encoreModifier passive require
-syntax keyword encoreModule bundle where import qualified 
+syntax keyword encoreModule bundle where import qualified
 syntax keyword encoreConditional if then else match case unless
 syntax keyword encoreRepeat repeat <- while break for by in let
 syntax keyword encoreKeyword matches with => new print ∊
-syntax keyword encoreType string int bool void 
+syntax keyword encoreType string int bool void
 syntax keyword encoreBoolean true false null
 syntax keyword encoreBlocking get fut
 syntax keyword encoreEmbed embed body end
-syntax keyword encoreOperator and not or 
-                                           
+syntax keyword encoreOperator and not or
+
 syntax region encoreString start=/"/ skip=/\\"/ end=/"/
 
 syntax match encoreComment "--.*"
@@ -75,7 +75,7 @@ highlight link encoreNumber Number
 highlight link encoreOperator Operator
 highlight link encoreStatement Statement
 highlight link encoreBoolean Boolean
-highlight link encoreModifier Typedef 
+highlight link encoreModifier Typedef
 highlight link encoreMaybe Boolean
 highlight link encoreBlocking Exception
 highlight link encoreEmbed PreCondit
@@ -108,11 +108,13 @@ if exists("s:loaded_ballercore")
 endif
 let s:loaded_ballercore = 1
 
-augroup encorec
-	autocmd bufreadpost *.enc cal s:readFromNormal()
-	autocmd bufwritepre *.enc cal s:writeToNormal()
-	autocmd bufwritepost *.enc cal s:readFromNormal()
-augroup end
+" This little block is the one that replaces stuff in the code with unicode
+" alternatives
+"augroup encorec
+"	autocmd bufreadpost *.enc cal s:readFromNormal()
+"	autocmd bufwritepre *.enc cal s:writeToNormal()
+"	autocmd bufwritepost *.enc cal s:readFromNormal()
+"augroup end
 
 " function to convert ''fancy haskell source'' to haskell source
 function s:writeToNormal()
@@ -155,7 +157,7 @@ function s:readFromNormal()
 	silent %s/\<not\>/¬/eg
 	silent %s/\<and\>/∧/eg
 	silent %s/\<or\>/∨/eg
-	
+
 	"&amp;"
    " silent %s/[^λ\\\-!#$%&*+/<=>?@\^|~.]\@<=\\\([^λ\\\-!#$%&*+/<=>\?@\^|~.]\)/λ\1/eg
    "silent %s/[^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>?@\^|~.]\@<=\\\([^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>\?@\^|~.]\)/λ\1/eg
@@ -169,7 +171,7 @@ function s:readFromNormal()
 "    silent %s/[^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>?@\^|~.]\@<=>>\([^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>\?@\^|~.]\)/»\1/eg
 "    silent %s/forall /∀/eg
 "    silent %s/ \@<=\. /∙ /eg
-    
+
 	let &l:fileencoding = s:oldencoding
 	call cursor(s:line,s:column)
 endfunction
