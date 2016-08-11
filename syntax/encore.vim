@@ -82,18 +82,18 @@ highlight link encoreEmbed PreCondit
 "hi Conceal guibg=White guifg=DarkMagenta
 
 " map to unicode symbols
-inoremap <buffer> \\ \
-inoremap <buffer> \ λ
-inoremap <buffer> <- ←
-inoremap <buffer> -> →
-inoremap <buffer> <= ≤
-inoremap <buffer> >= ≥
-inoremap <buffer> != ≠
-inoremap <buffer> => ⇒
-
-iabbrev <buffer> not ¬
-iabbrev <buffer> and ∧
-iabbrev <buffer> or  ∨
+"inoremap <buffer> \\ \
+"inoremap <buffer> \ λ
+"inoremap <buffer> <- ←
+"inoremap <buffer> -> →
+"inoremap <buffer> <= ≤
+"inoremap <buffer> >= ≥
+"inoremap <buffer> != ≠
+"inoremap <buffer> => ⇒
+"
+"iabbrev <buffer> not ¬
+"iabbrev <buffer> and ∧
+"iabbrev <buffer> or  ∨
 
 
 "imap <buffer> .<space> ∙<space>
@@ -101,7 +101,7 @@ iabbrev <buffer> or  ∨
 
 
 " turn syntax highlight on for new symbols
-syn match hsvarsym "(\|λ\|←\|→\|≤\|≥\|≡\|≠\| )"
+"syn match hsvarsym "(\|λ\|←\|→\|≤\|≥\|≡\|≠\| )"
 
 if exists("s:loaded_ballercore")
 	finish
@@ -117,63 +117,63 @@ let s:loaded_ballercore = 1
 "augroup end
 
 " function to convert ''fancy haskell source'' to haskell source
-function s:writeToNormal()
-	let s:line = line(".")
-	let s:column = col(".")
-
-	silent %s/λ/\\/eg
-	silent %s/←/<-/eg
-	silent %s/→/->/eg
-	silent %s/≤/<=/eg
-	silent %s/≥/>=/eg
-"	silent %s/≡/==/eg
-	silent %s/≠/!=/eg
-	silent %s/⇒/=>/eg
-	silent %s/¬/not/eg
-	silent %s/∧/and/eg
-	silent %s/∨/or/eg
-
-	let &l:fileencoding = s:oldencoding
-	call cursor(s:line,s:column)
-endfunction
-
-" function to convert haskell source to ''fancy haskell source''
-function s:readFromNormal()
-	let s:line = line(".")
-	let s:column = col(".")
-
-	let s:oldencoding = &l:fileencoding
-	set fileencoding=utf-8
-
-		silent %s/\\\s*(/λ(/eg
-	silent %s/<-/←/eg
-	silent %s/->/→/eg
-	silent %s/<=/≤/eg
-	silent %s/>=/≥/eg
-
-"	silent %s/≡/==/eg
-	silent %s/!=/≠/eg
-	silent %s/=>/⇒/eg
-	silent %s/\<not\>/¬/eg
-	silent %s/\<and\>/∧/eg
-	silent %s/\<or\>/∨/eg
-
-	"&amp;"
-   " silent %s/[^λ\\\-!#$%&*+/<=>?@\^|~.]\@<=\\\([^λ\\\-!#$%&*+/<=>\?@\^|~.]\)/λ\1/eg
-   "silent %s/[^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>?@\^|~.]\@<=\\\([^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>\?@\^|~.]\)/λ\1/eg
-		"    silent %s/[^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>?@\^|~.]\@<=->\([^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>\?@\^|~.]\)/→\1/eg
-"    silent %s/[^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>?@\^|~.]\@<=<-\([^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>\?@\^|~.]\)/←\1/eg
-"    silent %s/[^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>?@\^|~.]\@<=<=\([^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>\?@\^|~.]\)/≲\1/eg
-"    silent %s/[^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>?@\^|~.]\@<=>=\([^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>\?@\^|~.]\)/≳\1/eg
-"    silent %s/[^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>?@\^|~.]\@<===\([^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>\?@\^|~.]\)/≡\1/eg
-"    silent %s/[^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>?@\^|~.]\@<=\/=\([^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>\?@\^|~.]\)/≠\1/eg
-"    silent %s/[^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>?@\^|~.]\@<==>\([^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>\?@\^|~.]\)/⇒\1/eg
-"    silent %s/[^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>?@\^|~.]\@<=>>\([^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>\?@\^|~.]\)/»\1/eg
-"    silent %s/forall /∀/eg
-"    silent %s/ \@<=\. /∙ /eg
-
-	let &l:fileencoding = s:oldencoding
-	call cursor(s:line,s:column)
-endfunction
+"function s:writeToNormal()
+"	let s:line = line(".")
+"	let s:column = col(".")
+"
+"	silent %s/λ/\\/eg
+"	silent %s/←/<-/eg
+"	silent %s/→/->/eg
+"	silent %s/≤/<=/eg
+"	silent %s/≥/>=/eg
+""	silent %s/≡/==/eg
+"	silent %s/≠/!=/eg
+"	silent %s/⇒/=>/eg
+"	silent %s/¬/not/eg
+"	silent %s/∧/and/eg
+"	silent %s/∨/or/eg
+"
+"	let &l:fileencoding = s:oldencoding
+"	call cursor(s:line,s:column)
+"endfunction
+"
+"" function to convert haskell source to ''fancy haskell source''
+"function s:readFromNormal()
+"	let s:line = line(".")
+"	let s:column = col(".")
+"
+"	let s:oldencoding = &l:fileencoding
+"	set fileencoding=utf-8
+"
+"		silent %s/\\\s*(/λ(/eg
+"	silent %s/<-/←/eg
+"	silent %s/->/→/eg
+"	silent %s/<=/≤/eg
+"	silent %s/>=/≥/eg
+"
+""	silent %s/≡/==/eg
+"	silent %s/!=/≠/eg
+"	silent %s/=>/⇒/eg
+"	silent %s/\<not\>/¬/eg
+"	silent %s/\<and\>/∧/eg
+"	silent %s/\<or\>/∨/eg
+"
+"	"&amp;"
+"   " silent %s/[^λ\\\-!#$%&*+/<=>?@\^|~.]\@<=\\\([^λ\\\-!#$%&*+/<=>\?@\^|~.]\)/λ\1/eg
+"   "silent %s/[^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>?@\^|~.]\@<=\\\([^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>\?@\^|~.]\)/λ\1/eg
+"		"    silent %s/[^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>?@\^|~.]\@<=->\([^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>\?@\^|~.]\)/→\1/eg
+""    silent %s/[^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>?@\^|~.]\@<=<-\([^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>\?@\^|~.]\)/←\1/eg
+""    silent %s/[^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>?@\^|~.]\@<=<=\([^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>\?@\^|~.]\)/≲\1/eg
+""    silent %s/[^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>?@\^|~.]\@<=>=\([^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>\?@\^|~.]\)/≳\1/eg
+""    silent %s/[^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>?@\^|~.]\@<===\([^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>\?@\^|~.]\)/≡\1/eg
+""    silent %s/[^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>?@\^|~.]\@<=\/=\([^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>\?@\^|~.]\)/≠\1/eg
+""    silent %s/[^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>?@\^|~.]\@<==>\([^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>\?@\^|~.]\)/⇒\1/eg
+""    silent %s/[^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>?@\^|~.]\@<=>>\([^λ←→≲≳≡≠⇒»∙∀\\\-!#$%&*+/<=>\?@\^|~.]\)/»\1/eg
+""    silent %s/forall /∀/eg
+""    silent %s/ \@<=\. /∙ /eg
+"
+"	let &l:fileencoding = s:oldencoding
+"	call cursor(s:line,s:column)
+"endfunction
 
 do encorec bufread
