@@ -102,6 +102,7 @@ highlight link encoreEmbed PreCondit
 
 " turn syntax highlight on for new symbols
 "syn match hsvarsym "(\|λ\|←\|→\|≤\|≥\|≡\|≠\| )"
+syn match hsvarsym "( )"
 
 if exists("s:loaded_ballercore")
 	finish
