@@ -1,6 +1,7 @@
 " Vim syntax file
 " Language: Encore
 " Maintainer: Henrik Sommerland <henrik.sommerland@gmail.com>
+"             Lucas Arnström <lucas@arnstrom.se>
 "
 " Based on a modified Dafny syntax script by Michael Lowell Roberts.
 "
@@ -36,9 +37,10 @@ syntax keyword encoreOperator and not or
 
 syntax region encoreString start=/"/ skip=/\\"/ end=/"/
 
-syntax match encoreComment "--.*"
+syntax match encoreComment "--.*\|//.*"
 syntax match encoreTypeThing ":\s\*\w\+"
 syntax region encoreComment start="{-" end="-}"
+syntax region encoreComment start="/\*" end="\*/"
 syntax region encoreParam start="<\s*\w+" end=">"
 syntax region encoreEmbed start="embed" end="body"
 
