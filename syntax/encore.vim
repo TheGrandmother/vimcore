@@ -42,7 +42,7 @@ syntax match encoreTypeThing ":\s\*\w\+"
 syntax region encoreComment start="{-" end="-}"
 syntax region encoreComment start="/\*" end="\*/"
 syntax region encoreParam start="<\s*\w+" end=">"
-syntax region encoreEmbed start="embed" end="body"
+syntax region encoreEmbed start="embed" end="end"
 
 syntax match encoreNumber "\d\+"
 syntax match encoreIdentifier /\<\w\+\>/
