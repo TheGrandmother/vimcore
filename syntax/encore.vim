@@ -28,7 +28,7 @@ syntax keyword encoreModifier passive require
 syntax keyword encoreModule bundle where import qualified
 syntax keyword encoreConditional if then else match case unless
 syntax keyword encoreRepeat repeat <- while break for by in let
-syntax keyword encoreKeyword matches with => new print ∊
+syntax keyword encoreKeyword matches with when => new print ∊
 syntax keyword encoreType string int bool void
 syntax keyword encoreBoolean true false null
 syntax keyword encoreBlocking get fut
