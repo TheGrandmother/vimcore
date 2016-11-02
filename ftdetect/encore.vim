@@ -6,7 +6,7 @@
 " License:     Microsoft Public License (Ms-PL)
 " ============================================================================
 
-au BufEnter,BufRead,BufNewFile *.enc set filetype=encore expandtab shiftwidth=2
+au BufEnter,BufRead,BufNewFile *.enc set filetype=encore
 au BufEnter,BufRead,BufNewFile *.enc call Encore_map()
 au BufLeave  *.enc call Encore_unmap()
 
