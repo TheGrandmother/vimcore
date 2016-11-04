@@ -36,6 +36,7 @@ syntax keyword encoreEmbed embed body end
 syntax keyword encoreOperator and not or
 
 syntax region encoreString start=/"/ skip=/\\"/ end=/"/
+syntax region encoreChar start=/'/ skip=/\\'/ end=/'/
 
 syntax match encoreComment "--.*\|//.*"
 syntax match encoreTypeThing ":\s\*\w\+"
@@ -65,6 +66,7 @@ highlight link encoreTypeThing Label
 highlight link encoreParam Label
 highlight link encoreComment Comment
 highlight link encoreString String
+highlight link encoreChar String
 highlight link encoreNumber Number
 highlight link encoreOperator Operator
 highlight link encoreStatement Statement
