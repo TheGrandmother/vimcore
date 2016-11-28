@@ -25,7 +25,7 @@ syntax keyword encoreFunction def
 syntax keyword encoreTrait linear thread read subord unsafe
 syntax keyword encoreTypeDef class typedef trait
 syntax keyword encoreModifier passive require
-syntax keyword encoreModule bundle where import qualified
+syntax keyword encoreModule module import qualified hiding as
 syntax keyword encoreConditional if then else match case unless
 syntax keyword encoreRepeat repeat <- while break for by in let
 syntax keyword encoreKeyword matches with when => new print println
