@@ -21,7 +21,7 @@ syntax clear
 " encore is case sensitive.
 syntax case match
 
-syntax keyword encoreFunction def
+syntax keyword encoreFunction def fun
 syntax keyword encoreTrait linear thread read subord unsafe
 syntax keyword encoreTypeDef class typedef trait
 syntax keyword encoreModifier passive require
