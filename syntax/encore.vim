@@ -33,7 +33,7 @@ syntax keyword encoreType string uint int char bool void real
 syntax keyword encoreBoolean true false null
 syntax keyword encoreBlocking get fut
 syntax keyword encoreEmbed embed body
-syntax keyword encoreOperator && ! ||
+syntax keyword encoreOperator and not or
 
 syntax region encoreString start=/"/ skip=/\\"/ end=/"/
 syntax region encoreChar start=/'/ skip=/\\'/ end=/'/
