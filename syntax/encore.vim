@@ -29,7 +29,7 @@ syntax keyword encoreModule module import qualified hiding as
 syntax keyword encoreConditional if then else match case unless
 syntax keyword encoreRepeat repeat <- while break for by in let var val
 syntax keyword encoreKeyword matches with when => new print println do end return For Foreach
-syntax keyword encoreType string uint int char bool void real
+syntax keyword encoreType string uint int char bool unit real
 syntax keyword encoreBoolean true false null
 syntax keyword encoreBlocking get fut
 syntax keyword encoreEmbed embed body
